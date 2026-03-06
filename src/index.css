@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 30 25% 95%;
+    --foreground: 220 40% 13%;
+
+    --card: 35 20% 93%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    --primary: 216 55% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 42 85% 58%;
+    --secondary-foreground: 220 40% 13%;
+
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 0 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 89%;
+    --input: 220 15% 89%;
+    --ring: 216 55% 28%;
+
+    --radius: 0.75rem;
+
+    /* Autism awareness colors */
+    --autism-blue: 216 70% 42%;
+    --autism-gold: 42 90% 50%;
+    --autism-red: 0 65% 50%;
+    --autism-green: 150 50% 40%;
+    --autism-dark: 220 40% 10%;
+    --autism-warm: 25 80% 96%;
+
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-autism-blue {
+    color: hsl(var(--autism-blue));
+  }
+  .text-autism-gold {
+    color: hsl(var(--autism-gold));
+  }
+  .text-autism-red {
+    color: hsl(var(--autism-red));
+  }
+  .text-autism-green {
+    color: hsl(var(--autism-green));
+  }
+  .bg-autism-blue {
+    background-color: hsl(var(--autism-blue));
+  }
+  .bg-autism-gold {
+    background-color: hsl(var(--autism-gold));
+  }
+  .bg-autism-red {
+    background-color: hsl(var(--autism-red));
+  }
+  .bg-autism-green {
+    background-color: hsl(var(--autism-green));
+  }
+  .bg-autism-dark {
+    background-color: hsl(var(--autism-dark));
+  }
+  .bg-autism-warm {
+    background-color: hsl(var(--autism-warm));
+  }
+  .border-autism-gold {
+    border-color: hsl(var(--autism-gold));
+  }
+  .border-autism-blue {
+    border-color: hsl(var(--autism-blue));
+  }
+  .border-autism-red {
+    border-color: hsl(var(--autism-red));
+  }
+
+  /* Neon glow hover effect - EXTERNAL using box-shadow with rotating colors */
+  .neon-hover {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    box-shadow:
+      -8px -8px 22px -2px hsl(var(--autism-blue) / 0),
+      8px -8px 22px -2px hsl(var(--autism-gold) / 0),
+      8px 8px 22px -2px hsl(var(--autism-red) / 0),
+      -8px 8px 22px -2px hsl(var(--autism-green) / 0);
+  }
+  .neon-hover:hover {
+    transform: scale(1.03);
+    animation: neon-glow 3s ease-in-out 0.2s infinite;
+    box-shadow:
+      -8px -8px 22px -2px hsl(var(--autism-blue) / 0.5),
+      8px -8px 22px -2px hsl(var(--autism-gold) / 0.5),
+      8px 8px 22px -2px hsl(var(--autism-red) / 0.5),
+      -8px 8px 22px -2px hsl(var(--autism-green) / 0.5);
+  }
+
+  @keyframes neon-glow {
+    0%, 100% {
+      box-shadow:
+        -8px -8px 22px -2px hsl(var(--autism-blue) / 0.55),
+        8px -8px 22px -2px hsl(var(--autism-gold) / 0.55),
+        8px 8px 22px -2px hsl(var(--autism-red) / 0.55),
+        -8px 8px 22px -2px hsl(var(--autism-green) / 0.55);
+    }
+    25% {
+      box-shadow:
+        -8px -8px 22px -2px hsl(var(--autism-green) / 0.55),
+        8px -8px 22px -2px hsl(var(--autism-blue) / 0.55),
+        8px 8px 22px -2px hsl(var(--autism-gold) / 0.55),
+        -8px 8px 22px -2px hsl(var(--autism-red) / 0.55);
+    }
+    50% {
+      box-shadow:
+        -8px -8px 22px -2px hsl(var(--autism-red) / 0.55),
+        8px -8px 22px -2px hsl(var(--autism-green) / 0.55),
+        8px 8px 22px -2px hsl(var(--autism-blue) / 0.55),
+        -8px 8px 22px -2px hsl(var(--autism-gold) / 0.55);
+    }
+    75% {
+      box-shadow:
+        -8px -8px 22px -2px hsl(var(--autism-gold) / 0.55),
+        8px -8px 22px -2px hsl(var(--autism-red) / 0.55),
+        8px 8px 22px -2px hsl(var(--autism-green) / 0.55),
+        -8px 8px 22px -2px hsl(var(--autism-blue) / 0.55);
+    }
+  }
+
+
+  /* Manifesto card - rotating border on hover using conic-gradient */
+  .manifesto-card {
+    position: relative;
+  }
+  .manifesto-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: conic-gradient(
+      from 0deg,
+      hsl(var(--autism-blue)),
+      hsl(var(--autism-gold)),
+      hsl(var(--autism-red)),
+      hsl(var(--autism-green)),
+      hsl(var(--autism-blue))
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    animation: manifesto-border-spin 4s linear infinite;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .manifesto-card:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes manifesto-border-spin {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  /* Corner accents - visible by default, hidden on hover (border takes over) */
+  .manifesto-corner-tl {
+    border-top: 2px solid hsl(var(--autism-red));
+    border-left: 2px solid hsl(var(--autism-red));
+    animation: corner-tl-cycle 4s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+    -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(135deg, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  }
+  .manifesto-corner-br {
+    border-bottom: 2px solid hsl(var(--autism-gold));
+    border-right: 2px solid hsl(var(--autism-gold));
+    animation: corner-br-cycle 4s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+    -webkit-mask-image: linear-gradient(315deg, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(315deg, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  }
+  .manifesto-card:hover .manifesto-corner-tl,
+  .manifesto-card:hover .manifesto-corner-br {
+    opacity: 0;
+  }
+
+  @keyframes corner-tl-cycle {
+    0%, 100% { border-color: hsl(var(--autism-red)); }
+    25% { border-color: hsl(var(--autism-blue)); }
+    50% { border-color: hsl(var(--autism-green)); }
+    75% { border-color: hsl(var(--autism-gold)); }
+  }
+  @keyframes corner-br-cycle {
+    0%, 100% { border-color: hsl(var(--autism-gold)); }
+    25% { border-color: hsl(var(--autism-red)); }
+    50% { border-color: hsl(var(--autism-blue)); }
+    75% { border-color: hsl(var(--autism-green)); }
+  }
+}
+
+/* Neon scrollbar for select dropdowns and scrollable elements */
+.neon-scrollbar::-webkit-scrollbar,
+select::-webkit-scrollbar {
+  width: 6px;
+}
+
+.neon-scrollbar::-webkit-scrollbar-track,
+select::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.neon-scrollbar::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--autism-blue)),
+    hsl(var(--autism-gold)),
+    hsl(var(--autism-red)),
+    hsl(var(--autism-green)),
+    hsl(var(--autism-blue))
+  );
+  background-size: 100% 200%;
+  animation: neon-scroll 3s linear infinite;
+}
+
+@keyframes neon-scroll {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
